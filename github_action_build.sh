@@ -15,5 +15,6 @@ else
     echo "base branch: ${GITHUB_BASE_REF}"
     cmake -DCMAKE_BUILD_TYPE=Debug -DADDRESS_SANITIZER=1 -DENABLE_RAFT_STATS=1 ../
     make -j2
+    echo "PR test"
     ./runtests.sh
 fi
