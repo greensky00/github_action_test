@@ -21,10 +21,10 @@ set(BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR})
 if (CODE_COVERAGE GREATER 0)
     set(CMAKE_BUILD_TYPE "Debug")
     set(COVERAGE_EXCLUDES
-        'asio/*'
-        'examples/*'
-        'tests/*'
-        'usr/*'
+        '*asio/*'
+        '*examples/*'
+        '*tests/*'
+        '*usr/*'
     )
 
     include(cmake/CodeCoverage.cmake)
