@@ -20,13 +20,6 @@ set(BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR})
 
 if (CODE_COVERAGE GREATER 0)
     set(CMAKE_BUILD_TYPE "Debug")
-    set(COVERAGE_EXCLUDES
-        '*asio/*'
-        '*examples/*'
-        '*tests/*'
-        '*usr/*'
-    )
-
     include(cmake/CodeCoverage.cmake)
     message(STATUS "---- CODE COVERAGE DETECTION MODE ----")
 endif()
@@ -160,6 +153,12 @@ endif()
 if (CODE_COVERAGE GREATER 0)
     APPEND_COVERAGE_COMPILER_FLAGS()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-inline")
+    set(COVERAGE_EXCLUDES
+        '*asio/*'
+        '*examples/*'
+        '*tests/*'
+        '*usr/*'
+    )
 endif()
 
 if ( (TESTSUITE_NO_COLOR GREATER 0) OR (WIN32) )
